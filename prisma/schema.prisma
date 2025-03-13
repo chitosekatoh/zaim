@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model History {
+  id                  Int       @id @unique(map: "id_UNIQUE") @default(autoincrement())
+  date                DateTime? @db.Date
+  balance             String?   @db.VarChar(45)
+  category            String?   @db.VarChar(45)
+  category_detail     String?   @db.VarChar(45)
+  payment_source      String?   @db.VarChar(45)
+  deposit_destination String?   @db.VarChar(45)
+  item                String?   @db.VarChar(45)
+  memo                String?   @db.VarChar(45)
+  store               String?   @db.VarChar(45)
+  currency            String?   @db.VarChar(45)
+  income              String?   @db.VarChar(45)
+  payment             String?   @db.VarChar(45)
+  transfer            String?   @db.VarChar(45)
+
+  @@map("history")
+}
